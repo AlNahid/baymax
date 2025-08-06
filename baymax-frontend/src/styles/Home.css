@@ -1,0 +1,253 @@
+/* Home Page Styles */
+.home-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.home-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.date-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.date-header h1 {
+  color: #333;
+  font-size: 2.5em;
+  font-weight: 300;
+  margin: 0 0 10px 0;
+}
+
+.current-date {
+  color: #666;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.week-view {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.day-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-radius: 15px;
+  padding: 15px 10px;
+  min-width: 60px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.day-pill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.day-pill.today {
+  background: linear-gradient(135deg, #4A90E2, #357ABD);
+  color: white;
+}
+
+.day-name {
+  font-size: 0.9em;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.day-number {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.medicine-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.medicine-section {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.section-icon { font-size: 2em; }
+
+.section-header h3 {
+  color: #333;
+  font-size: 1.8em;
+  font-weight: 400;
+  margin: 0;
+}
+
+.no-medicines {
+  text-align: center;
+  padding: 40px 20px;
+  color: #888;
+}
+
+.no-medicines p {
+  font-size: 1.1em;
+  margin: 0;
+}
+
+.medicine-list {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.medicine-card {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.medicine-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.medicine-card.taken {
+  background: #e8f5e8;
+  border-color: #4caf50;
+}
+
+.medicine-card.out-of-stock {
+  background: #ffebee;
+  border-color: #f44336;
+  opacity: 0.8;
+}
+
+.medicine-info h4 {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+.medicine-info h4.strikethrough {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.medicine-card.out-of-stock .medicine-info h4,
+.medicine-card.out-of-stock .medicine-dose {
+  color: #d32f2f;
+}
+
+.medicine-dose {
+  color: #4A90E2;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+  font-size: 1.1em;
+}
+
+.medicine-details {
+  color: #666;
+  margin: 0 0 5px 0;
+  font-size: 0.95em;
+}
+
+.medicine-remaining {
+  color: #888;
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.low-stock {
+  color: #ff6b6b;
+  font-weight: bold;
+}
+
+.out-of-stock-warning {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.take-button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 80px;
+}
+
+.take-button.take {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  color: white;
+}
+
+.take-button.take:hover {
+  background: linear-gradient(135deg, #45a049, #3d8b40);
+  transform: scale(1.05);
+}
+
+.take-button.undo {
+  background: linear-gradient(135deg, #ff9800, #f57c00);
+  color: white;
+}
+
+.take-button.undo:hover {
+  background: linear-gradient(135deg, #f57c00, #ef6c00);
+  transform: scale(1.05);
+}
+
+.take-button.disabled {
+  background: #e0e0e0;
+  color: #9e9e9e;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.take-button.disabled:hover {
+  background: #e0e0e0;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-content { padding: 20px 15px; }
+  .date-header h1 { font-size: 2em; }
+  .week-view { gap: 10px; }
+  .day-pill { min-width: 50px; padding: 12px 8px; }
+  .medicine-list { grid-template-columns: 1fr; }
+  .medicine-card { flex-direction: column; gap: 15px; align-items: stretch; }
+  .medicine-info { text-align: center; }
+  .section-header { flex-direction: column; gap: 10px; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .medicine-section { padding: 20px 15px; }
+  .section-header h3 { font-size: 1.5em; }
+  .medicine-card { padding: 15px; }
+}

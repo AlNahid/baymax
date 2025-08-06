@@ -1,0 +1,320 @@
+/* Add and Update Page Styles */
+.add-medicine-container, .update-medicine-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 0;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.back-button {
+  background: linear-gradient(135deg, #4A90E2, #357ABD);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+}
+
+.page-title {
+  color: #333;
+  font-size: 2.5em;
+  font-weight: 300;
+  margin: 0 0 10px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-subtitle {
+  color: #666;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.header-spacer { width: 100px; }
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.form-group, .dosage-section {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-group:hover, .dosage-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.form-row, .name-dose-row, .duration-quantity-row { display: flex; gap: 20px; }
+.name-field { flex: 2; }
+.dose-field { flex: 1; }
+.duration-quantity-row > div { flex: 1; }
+
+.form-group label, .section-title {
+  display: block;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+.form-group label { font-size: 1.2em; }
+
+.section-title, .dosage-section h3 {
+  font-size: 1.2em;
+  margin: 0 0 25px 0;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.form-input, .form-select {
+  width: 100%;
+  padding: 18px 20px;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  background: #f9f9f9;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.form-input:focus, .form-select:focus {
+  outline: none;
+  border-color: #4A90E2;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+  transform: translateY(-1px);
+}
+
+.form-input:hover, .form-select:hover {
+  border-color: #c0c0c0;
+  background: white;
+}
+
+.form-input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.dosage-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.dosage-item {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.dosage-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-color: rgba(74, 144, 226, 0.2);
+}
+
+.dosage-item label {
+  display: block;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.count-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.count-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+}
+
+.count-btn:hover {
+  background: linear-gradient(135deg, #45a049, #3d8b40);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+}
+
+.count-btn:active { transform: scale(0.95); }
+
+.count-display {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #333;
+  min-width: 50px;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.cancel-button, .confirm-button {
+  border: none;
+  border-radius: 15px;
+  padding: 18px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 150px;
+  height: 58px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cancel-button {
+  background: linear-gradient(135deg, #9e9e9e, #757575);
+  color: white;
+  box-shadow: 0 6px 20px rgba(158, 158, 158, 0.2);
+}
+
+.cancel-button:hover {
+  background: linear-gradient(135deg, #757575, #616161);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(158, 158, 158, 0.3);
+}
+
+.confirm-button {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  color: white;
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.2);
+}
+
+.confirm-button:hover {
+  background: linear-gradient(135deg, #45a049, #3d8b40);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+}
+
+.confirm-button:active { transform: translateY(-1px); }
+
+.confirm-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  background: #ccc;
+}
+
+.success-message {
+  background: linear-gradient(135deg, #e8f5e8, #f1f8f1);
+  color: #2e7d32;
+  padding: 20px 25px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 600;
+  border-left: 5px solid #4caf50;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+.error-message {
+  background: linear-gradient(135deg, #ffebee, #fef3f3);
+  color: #c62828;
+  padding: 20px 25px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 600;
+  border-left: 5px solid #f44336;
+  box-shadow: 0 4px 15px rgba(244, 67, 54, 0.1);
+  border: 1px solid rgba(244, 67, 54, 0.2);
+}
+
+.back-button:focus, .form-input:focus, .count-btn:focus, 
+.confirm-button:focus, .cancel-button:focus {
+  outline: 2px solid #4A90E2;
+  outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content { padding: 20px 15px; }
+  .page-title { font-size: 2em; }
+  .header-content { flex-direction: column; gap: 20px; }
+  .form-group, .dosage-section { padding: 20px 15px; }
+  .dosage-grid { grid-template-columns: 1fr; }
+  .dosage-item { padding: 15px; }
+  .form-actions { flex-direction: column; gap: 15px; }
+  .cancel-button, .confirm-button { width: 100%; }
+  .form-row, .name-dose-row, .duration-quantity-row { flex-direction: column; gap: 15px; }
+  .name-field, .dose-field { flex: 1; }
+}
+
+@media (max-width: 480px) {
+  .form-group, .dosage-section { padding: 20px 15px; }
+  .page-title { font-size: 1.8em; }
+  .count-btn { width: 35px; height: 35px; font-size: 16px; }
+  .count-display { font-size: 1.5em; padding: 8px; }
+  .form-row, .name-dose-row, .duration-quantity-row { flex-direction: column; gap: 10px; }
+}
