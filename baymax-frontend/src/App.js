@@ -7,6 +7,8 @@ import AddMedicine from './pages/AddMedicine';
 import TrackMedicine from './pages/TrackMedicine';
 import UpdateMedicine from './pages/UpdateMedicine';
 import Profile from './pages/Profile';
+import ProfileManagement from './pages/ProfileManagement';
+import Contacts from './pages/Contacts';
 import { AuthProvider, useAuth } from './context/AuthContext';
 
 // Main App Component with Authentication
@@ -56,6 +58,10 @@ function AppContent() {
         />;
       case 'profile':
         return <Profile currentPage={currentPage} setCurrentPage={setCurrentPage} />;
+      case 'profile-management':
+        return <ProfileManagement currentPage={currentPage} setCurrentPage={setCurrentPage} />;
+      case 'contacts':
+        return <Contacts currentPage={currentPage} setCurrentPage={setCurrentPage} />;
       default:
         return <Home currentPage={currentPage} setCurrentPage={setCurrentPage} />;
     }

@@ -44,4 +44,32 @@ router.get('/me', require('../middleware/auth'), async (req, res) => {
   res.json({ status: 'success', data: { user: { id: req.user._id, firstName: req.user.firstName, lastName: req.user.lastName, email: req.user.email, phone: req.user.phone } } });
 });
 
+// Update user profile
+router.put('/profile', require('../middleware/auth'), async (req, res) => {
+  try {
+    const { firstName, lastName, phone, password } = req.body;
+    console.log('Profile update request:', { firstName, lastName, phone, hasPassword: !!password }); // Debug log
+    
+    const updateData = { firstName, lastName, phone };
+
+    // Hashing password before update
+    if (password) {
+      const bcrypt = require('bcryptjs');
+      updateData.password = await bcrypt.hash(password, 12);
+    }
+    
+    const updatedUser = await User.findByIdAndUpdate(
+      req.user._id,
+      updateData,
+      { new: true }
+    );
+    
+    console.log('User updated successfully:', updatedUser._id); // Debug log
+    res.json({ status: 'success', data: { user: { id: updatedUser._id, firstName: updatedUser.firstName, lastName: updatedUser.lastName, email: updatedUser.email, phone: updatedUser.phone } } });
+  } catch (error) {
+    console.error('Profile update error:', error); // Debug log
+    res.json({ status: 'error', message: 'Failed to update profile' });
+  }
+});
+
 module.exports = router;

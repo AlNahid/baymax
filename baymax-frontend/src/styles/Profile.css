@@ -84,10 +84,11 @@
 .profile-actions {
   display: flex;
   justify-content: center;
+  gap: 15px;
 }
 
-.logout-button {
-  background: linear-gradient(135deg, #f44336, #d32f2f);
+/* Button Shared Styles */
+.profile-management-button, .contacts-button, .logout-button {
   color: white;
   border: none;
   border-radius: 15px;
@@ -99,6 +100,32 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.profile-management-button {
+  background: linear-gradient(135deg, #4A90E2, #357ABD);
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);
+}
+
+.profile-management-button:hover {
+  background: linear-gradient(135deg, #357ABD, #2968A3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+}
+
+.contacts-button {
+  background: linear-gradient(135deg, #ff9800, #f57c00);
+  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.2);
+}
+
+.contacts-button:hover {
+  background: linear-gradient(135deg, #f57c00, #ef6c00);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);
+}
+
+.logout-button {
+  background: linear-gradient(135deg, #f44336, #d32f2f);
   box-shadow: 0 4px 15px rgba(244, 67, 54, 0.2);
 }
 
@@ -108,7 +135,7 @@
   box-shadow: 0 8px 25px rgba(244, 67, 54, 0.3);
 }
 
-.logout-button:active {
+.profile-management-button:active, .contacts-button:active, .logout-button:active {
   transform: translateY(0);
 }
 
@@ -118,47 +145,18 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .profile-content {
-    padding: 20px 15px;
-  }
-  
-  .profile-header h1 {
-    font-size: 2em;
-  }
-  
-  .profile-card {
-    padding: 25px 20px;
-  }
-  
-  .user-info-section {
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
-  }
-  
-  .user-avatar {
-    width: 70px;
-    height: 70px;
-  }
-  
-  .avatar-icon {
-    font-size: 2em;
-  }
-  
-  .user-details h2 {
-    font-size: 1.5em;
-  }
+  .profile-content { padding: 20px 15px; }
+  .profile-header h1 { font-size: 2em; }
+  .profile-card { padding: 25px 20px; }
+  .user-info-section { flex-direction: column; text-align: center; gap: 15px; }
+  .user-avatar { width: 70px; height: 70px; }
+  .avatar-icon { font-size: 2em; }
+  .user-details h2 { font-size: 1.5em; }
 }
 
 @media (max-width: 480px) {
-  .profile-header h1 {
-    font-size: 1.8em;
-  }
-  
-  .logout-button {
-    padding: 12px 25px;
-    font-size: 15px;
-  }
+  .profile-header h1 { font-size: 1.8em; }
+  .logout-button { padding: 12px 25px; font-size: 15px; }
 }
 
 /* Focus styles for accessibility */

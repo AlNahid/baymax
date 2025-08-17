@@ -6,6 +6,7 @@ require('dotenv').config();
 // Import routes
 const authRoutes = require('./routes/auth');
 const medicineRoutes = require('./routes/medicines');
+const contactRoutes = require('./routes/contacts');
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 app.get('/api/health', (req, res) => res.json({ status: 'OK', message: 'Baymax Backend is running!', timestamp: new Date().toISOString() }));
 app.use('/api/auth', authRoutes);
 app.use('/api/medicines', medicineRoutes);
+app.use('/api/contacts', contactRoutes);
 
 // Database connection
 mongoose.connect(process.env.MONGODB_URI)

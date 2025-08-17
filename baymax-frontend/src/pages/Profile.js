@@ -34,6 +34,18 @@ const Profile = ({ currentPage, setCurrentPage }) => {
 
           <div className="profile-actions">
             <button 
+              className="profile-management-button"
+              onClick={() => setCurrentPage('profile-management')}
+            >
+              Profile Management
+            </button>
+            <button 
+              className="contacts-button"
+              onClick={() => setCurrentPage('contacts')}
+            >
+              Contacts
+            </button>
+            <button 
               className="logout-button"
               onClick={handleLogout}
             >

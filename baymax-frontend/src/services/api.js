@@ -15,12 +15,17 @@ const apiRequest = async (endpoint, options = {}) => {
       headers.Authorization = `Bearer ${token}`;
     }
     
+    console.log('API Request:', { url, method: options.method, headers, body: options.body }); // Debug log
+    
     const response = await fetch(url, {
       ...options,
       headers,
     });
 
+    console.log('API Response status:', response.status, response.statusText); // Debug log
+    
     const data = await response.json();
+    console.log('API Response data:', data); // Debug log
 
     if (!response.ok) {
       throw new Error(data.message || 'API request failed');
@@ -28,6 +33,7 @@ const apiRequest = async (endpoint, options = {}) => {
 
     return data;
   } catch (error) {
+    console.error('API Request error:', error); // Debug log
     throw error;
   }
 };
@@ -49,6 +55,14 @@ export const authAPI = {
       method: 'POST',
       body: JSON.stringify(credentials),
       auth: false,
+    });
+  },
+
+  // Update user profile
+  updateProfile: async (profileData) => {
+    return apiRequest('/auth/profile', {
+      method: 'PUT',
+      body: JSON.stringify(profileData),
     });
   },
 
@@ -110,4 +124,29 @@ export const medicineAPI = {
   },
 };
 
-export default { auth: authAPI, medicine: medicineAPI };
+// Contact API functions
+export const contactAPI = {
+  // Get all contacts
+  getContacts: async () => {
+    return apiRequest('/contacts', {
+      method: 'GET',
+    });
+  },
+
+  // Add new contact
+  addContact: async (contactData) => {
+    return apiRequest('/contacts', {
+      method: 'POST',
+      body: JSON.stringify(contactData),
+    });
+  },
+
+  // Delete contact
+  deleteContact: async (contactId) => {
+    return apiRequest(`/contacts/${contactId}`, {
+      method: 'DELETE',
+    });
+  },
+};
+
+export default { auth: authAPI, medicine: medicineAPI, contact: contactAPI };
